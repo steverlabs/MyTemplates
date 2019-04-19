@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": "demouser"
     },
     "adminPassword": {
-      "value": "GEN-PASSWORD"
+      "value": "Demo@pass123"
     },
     "domainName": {
-      "value": "mydomain.local"
+      "value": "usocppts.com"
     },
     "dnsPrefix": {
-      "value": "GEN-UNIQUE"
+      "value": "usocppts"
     }
   }
 }
