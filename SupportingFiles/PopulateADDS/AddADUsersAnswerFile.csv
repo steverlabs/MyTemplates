@@ -1,0 +1,6 @@
+GivenName,Surname,Name,samAccountName,ParentOU
+Frank,Sinatra,Frank Sinatra,franks,"OU=Corp_Users,DC=usocppts,DC=com"
+Dean,Martin,Dean Martin,deanm,"OU=Corp_Users,DC=usocppts,DC=com"
+Sammy,Davis Jr.,Sammy Davis Jr.,sammyd,"OU=Corp_Users,DC=usocppts,DC=com"
+Peter,Lawford,Peter Lawford,peterl,"OU=Corp_Users,DC=usocppts,DC=com"
+Joey,Bishop,Joey Bishop,joeyb,"OU=Corp_Users,DC=usocppts,DC=com"
