@@ -1,6 +1,11 @@
+$url = "https://raw.githubusercontent.com/steverlabs/MyTemplates/master/SupportingFiles/PopulateADDS/AddADUsersAnswerFile.csv"
+$output = "$PSScriptRoot\AddADUsersAnswerFile.csv"
+
+Invoke-WebRequest -Uri $url -OutFile $output
+
 Import-Module ActiveDirectory
 New-ADOrganizationalUnit -Name "Corp_Users"
-Import-Csv "https://raw.githubusercontent.com/steverlabs/MyTemplates/master/SupportingFiles/PopulateADDS/AddADUsersAnswerFile.csv" | ForEach-Object {
+Import-Csv $output  | ForEach-Object {
 $forest = Get-ADDomain
 $userPrincinpal = $_.samAccountName + "@" + $forest.forest
 New-ADUser -Name $_.Name `
