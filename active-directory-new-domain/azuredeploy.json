@@ -302,7 +302,8 @@
                     "name": "config-app",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Compute/virtualMachines/extensions', variables('adVMName'), 'CreateADForest')]"
+                        "[resourceId('Microsoft.Compute/virtualMachines/extensions', variables('adVMName'), 'CreateADForest')]",
+                        "[variables('adVMName')]"
                     ],
                     "tags": {
                         "displayName": "config-app"
