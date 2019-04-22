@@ -1,6 +1,6 @@
 Import-Module ActiveDirectory
 New-ADOrganizationalUnit -Name "Corp_Users"
-Import-Csv "C:\Scripts\NewUsers.csv" | ForEach-Object {
+Import-Csv "https://raw.githubusercontent.com/steverlabs/MyTemplates/master/SupportingFiles/PopulateADDS/AddADUsersAnswerFile.csv" | ForEach-Object {
 $forest = Get-ADDomain
 $userPrincinpal = $_.samAccountName + "@" + $forest.forest
 New-ADUser -Name $_.Name `

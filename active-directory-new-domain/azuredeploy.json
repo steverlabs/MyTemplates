@@ -53,6 +53,13 @@
             "metadata": {
                 "description": "Location for all resources."
             }
+        },
+        "commandToExecute": {
+            "type": "string",
+            "defaultValue": "[uri(parameters('_artifactsLocation'), concat('PopulateAADS/AddADUsers.ps1'))]",
+            "metadata": {
+                "description": "Custom Script Extension calls this command"
+            }
         }
     },
     "variables": {
@@ -288,9 +295,36 @@
                             }
                         }
                     }
-                }
+                },
+                {
+                    "apiVersion": "2018-06-01",
+                    "type": "extensions",
+                    "name": "config-app",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Compute/virtualMachines/extensions', variables('adVMName'), 'CreateADForest')]"
+                    ],
+                    "tags": {
+                        "displayName": "config-app"
+                    },
+                    "properties": {
+                        "publisher": "Microsoft.Compute",
+                        "type": "CustomScriptExtension",
+                        "typeHandlerVersion": "1.9",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "fileUris": [
+                                "script location"
+                            ],
+                            "timestamp":123456789
+                        },
+                        "protectedSettings": {
+                            "commandToExecute": "[parameters('commandToExecute')]"
+                            }
+                        }
+                    }
             ]
-        },
+        },  
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-11-01",
