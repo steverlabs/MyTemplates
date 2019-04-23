@@ -288,35 +288,7 @@
                             }
                         }
                     }
-                },
-                {
-                    "apiVersion": "2018-06-01",
-                    "type": "extensions",
-                    "name": "config-app",
-                    "location": "[resourceGroup().location]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Compute/virtualMachines/extensions', variables('adVMName'), 'CreateADForest')]",
-                        "[variables('adVMName')]"
-                    ],
-                    "tags": {
-                        "displayName": "config-app"
-                    },
-                    "properties": {
-                        "publisher": "Microsoft.Compute",
-                        "type": "CustomScriptExtension",
-                        "typeHandlerVersion": "1.9",
-                        "autoUpgradeMinorVersion": true,
-                        "settings": {
-                            "fileUris": [
-                                "[uri(parameters('_artifactsLocation'), concat('SupportingFiles/AddADUsers.ps1', parameters('_artifactsLocationSasToken')))]"
-                            ],
-                            "timestamp":123456789
-                        },
-                        "protectedSettings": {
-                            "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File AddADUsers.ps1"
-                            }
-                        }
-                    }
+                }
             ]
         },  
         {
