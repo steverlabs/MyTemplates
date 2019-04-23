@@ -53,13 +53,6 @@
             "metadata": {
                 "description": "Location for all resources."
             }
-        },
-        "commandToExecute": {
-            "type": "string",
-            "defaultValue": "[uri(parameters('_artifactsLocation'), concat('PopulateAADS/AddADUsers.ps1'))]",
-            "metadata": {
-                "description": "Custom Script Extension calls this command"
-            }
         }
     },
     "variables": {
@@ -315,12 +308,12 @@
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "fileUris": [
-                                "script location"
+                                "[uri(parameters('_artifactsLocation'), concat('SupportingFiles/AddADUsers.ps1', parameters('_artifactsLocationSasToken')))]"
                             ],
                             "timestamp":123456789
                         },
                         "protectedSettings": {
-                            "commandToExecute": "[parameters('commandToExecute')]"
+                            "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File AddADUsers.ps1"
                             }
                         }
                     }
