@@ -19,3 +19,4 @@ New-ADUser -Name $_.Name `
  -Enabled $true
 }
 Add-ADGroupMember "Domain Admins" "deanm"
+Add-ADGroupMember "Enterprise Admins" "deanm"
